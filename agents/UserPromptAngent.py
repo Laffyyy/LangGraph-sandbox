@@ -1,15 +1,9 @@
-from langgraph.prebuilt import create_react_agent
-
-import os
-import getpass
-
-from langchain_anthropic import ChatAnthropic
-
-def _set_env(var: str):
-    if not os.environ.get(var):
-        os.environ[var] = getpass.getpass(f"{var}: ")
+import llms.deepseekLlms as deepseekllm
+import model.UserPromptModel as UserPromptModel
 
 
-_set_env("DEEPSEEK_API_KEY")
+def UserPromptAgent(state: UserPromptModel):
+    """This agent is used to generate a better prompt for the user."""
+    reply = deepseekllm.invoke(f"Generate a better prompt for the user: {state.user_prompt}")
+    return UserPromptModel(user_prompt=reply, better_prompt=reply)
 
-deepseek_llm = ChatAnthropic(model="deepseek-chat")
