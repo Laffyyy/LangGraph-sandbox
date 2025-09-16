@@ -3,7 +3,7 @@ from langgraph.prebuilt import create_react_agent
 import os
 import getpass
 
-from langchain_anthropic import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
 def _set_env(var: str):
     if not os.environ.get(var):
@@ -17,3 +17,8 @@ deepseek_llm = ChatOpenAI(
     api_key=os.environ["DEEPSEEK_API_KEY"],
     base_url="https://api.deepseek.com"  # DeepSeek's API endpoint
 )
+
+def invoke(prompt: str) -> str:
+    """Invoke the DeepSeek LLM with a given prompt."""
+    response = deepseek_llm.invoke(prompt)
+    return response.content
