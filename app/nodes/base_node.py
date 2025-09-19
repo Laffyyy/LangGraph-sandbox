@@ -1,5 +1,6 @@
-from app.state import State
+from app.State import State
+
 
 class BaseNode:
-    def run(self, state: State) -> State:
-        raise NotImplementedError("subclasses should implement this method (run()).")
+	def run(self, state: State) -> State:
+		raise NotImplementedError("subclasses should implement this method (run()).")

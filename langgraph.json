@@ -5,10 +5,7 @@
     "langgraph"
   ],
   "graphs": {
-    "user_prompt_improver": {
-      "path": "./graph.py:graph",
-      "description": "A graph that improves user prompts using DeepSeek AI"
-    }
+    "ConversationGraph": "app.graph_builder:build_graph"
   },
   "env": ".env",
   "python_version": "3.13"

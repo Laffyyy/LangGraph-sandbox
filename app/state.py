@@ -1,15 +1,17 @@
 import string
-from typing import List
-from pydantic import BaseModel
+from typing import List, Optional, TypedDict
 
 
-class ConversationState(BaseModel):
-    Nodepath: List[str]
-    current_user: str
-    user_input: List[str]
-    refined_prompt: str
-    conversation_history: List[str] 
-    error_message: str
-    datestamp: List[str]
+class State(TypedDict, total=False):
+	Nodepath: List[str]
+	current_user: str
+	user_input: str
+	refined_prompt: str
+	conversation_history: List[str]
+	error_message: Optional[str]
+	datestamp: str
+
+# Backwards-compatibility alias
+ConversationState = State
 
 
