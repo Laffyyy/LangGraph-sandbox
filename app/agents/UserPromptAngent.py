@@ -7,6 +7,7 @@ class UserPromptAgent:
 		self._invoke = deepseekllm.invoke if llm is None else (lambda prompt: llm.invoke(prompt))
 
 	def refined_prompt(self, prompt: str) -> str:
+		"""Refine the user prompt to be more specific and clear."""
 		instructions = (
 			"You are an expert prompt engineer. "
 			"Refine the following user prompt to be more specific and clear:\n"

@@ -1,3 +1,4 @@
+from datetime import datetime
 from app.nodes.base_node import BaseNode
 from app.State import State
 
@@ -10,4 +11,6 @@ class ProcessInputNode(BaseNode):
 		if isinstance(latest_input, str):
 			latest_input = latest_input.strip().lower()
 		state["user_input"] = latest_input
+		state["datestamp"] = datetime.now().isoformat()
 		return state
+	
