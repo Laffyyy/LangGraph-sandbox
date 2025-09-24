@@ -1,7 +1,7 @@
 from datetime import datetime
 from app.nodes.base_node import BaseNode
 from app.State import State
-
+from langchain_core.messages import HumanMessage 
 
 class ProcessInputNode(BaseNode):
 	def run(self, state: State) -> State:

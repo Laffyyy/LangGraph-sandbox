@@ -11,6 +11,11 @@ class UserPromptAgent:
 		instructions = (
 			"You are an expert prompt engineer. "
 			"Refine the following user prompt to be more specific and clear:\n"
+
+			"Don't change the meaning of the prompt, just make it clearer and more specific.\n"
+			"Don't suggest any additional context or information.\n"
+			"Return only the refined prompt, without any additional text.\n\n"
+			
 			f"User Prompt: {prompt}\n"
 			"Refined Prompt:"
 		)
