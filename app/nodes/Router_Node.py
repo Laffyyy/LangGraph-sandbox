@@ -1,6 +1,4 @@
 from app.State import State  
-from typing import List, Optional, TypedDict
-from typing_extensions import Literal
 
 class RouterNode:
     def route(self, state:State) -> str:
@@ -13,3 +11,6 @@ class RouterNode:
             return "Chatbot_Node"
         else:
             return "Default_Node"
+
+    def run(self, state:State) -> str:
+        return self.route(state)
