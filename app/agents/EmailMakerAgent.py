@@ -1,4 +1,8 @@
 import llms.deepseekLlms as deepseekllm
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
 
 class EmailMakerAgent:
     def __init__(self, llm=None):

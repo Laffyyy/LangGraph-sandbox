@@ -20,17 +20,16 @@ def build_graph():
 	workflow.add_node("process_input", process_node.run)
 	workflow.add_node("user_prompt_agent", refiner_node.run)
 	workflow.add_node("router", router_node.run)
-
-
+	
 
 	workflow.add_edge(START, "process_input")
 	workflow.add_edge("process_input", "user_prompt_agent")
 	workflow.add_edge("user_prompt_agent", "router")
 	workflow.add_conditional_edges("router", {
-		"Emailer_Node": "emailer_node",
-		"Scheduler_Node": "scheduler_node",
-		"Chatbot_Node": "chatbot_node",
-		"Default_Node": END
+		"emailer": "emailer_node",
+		"scheduler": "scheduler_node",
+		"chatbot": "chatbot_node",
+		"default": END
 	})
 
 	workflow.add_edge("router", END)
